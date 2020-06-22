@@ -14,17 +14,17 @@ function setup() {
 	world = engine.world;
 	roof = new Roof(600, 100, 450, 10);
 	
-	ball = new Ball(400, 400, 100);
-	ball1 = new Ball(500, 400, 100);
-	ball2 = new Ball(600, 400, 100);
-	ball3 = new Ball(700, 400, 100);
-	ball4 = new Ball(800, 400, 100);
+	ball = new Ball(400, 400, 50);
+	ball1 = new Ball(500, 400, 50);
+	ball2 = new Ball(600, 400, 50);
+	ball3 = new Ball(700, 400, 50);
+	ball4 = new Ball(800, 400, 50);
 
-	chain = new Line(ball.body, {x: 400, y: 100});
-	chain1 = new Line(ball1.body, {x: 500, y: 100});
+	chain = new Line(ball.body, {x: 500, y: 100});
+	chain1 = new Line(ball1.body, {x: 550, y: 100});
 	chain2 = new Line(ball2.body, {x: 600, y: 100});
-	chain3 = new Line(ball3.body, {x: 700, y: 100});
-	chain4 = new Line(ball4.body, {x: 800, y: 100});
+	chain3 = new Line(ball3.body, {x: 650, y: 100});
+	chain4 = new Line(ball4.body, {x: 700, y: 100});
 	
 	Engine.run(engine);
 }
@@ -46,7 +46,7 @@ function draw() {
 }
 
 function keyPressed(){
-  if (keyCode === 32){
-	  Matter.Body.setVelocity(ball.body, -10);
+  if (keyCode === UP_ARROW){
+	  Matter.Body.applyForce(ball.body, ball.body.position, {x: -0.1, y: -0.1});
   }
 }
